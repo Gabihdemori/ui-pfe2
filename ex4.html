@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encontrar o Maior Número</title>
+</head>
+
+<style>
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+h1 {
+    color: #333;
+}
+input {
+    padding: 5px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+button {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #444;
+}
+p {
+    margin: 10px;
+    color: #333;
+}
+</style>
+
+<body>
+    <h1>Encontrar o Maior Número</h1>
+    <div id="inputs">
+        <input type="number" id="numero1" placeholder="Número 1" required>
+        <input type="number" id="numero2" placeholder="Número 2" required>
+        <input type="number" id="numero3" placeholder="Número 3" required>
+        <input type="number" id="numero4" placeholder="Número 4" required>
+        <input type="number" id="numero5" placeholder="Número 5" required>
+        <input type="number" id="numero6" placeholder="Número 6" required>
+    </div>
+    <button onclick="encontrarMaior()">Encontrar Maior Número</button>
+    <p id="resultado"></p>
+</body>
+    <script>
+    function encontrarMaior() {
+        let numeros = [
+            Number(document.getElementById('numero1').value),
+            Number(document.getElementById('numero2').value),
+            Number(document.getElementById('numero3').value),
+            Number(document.getElementById('numero4').value),
+            Number(document.getElementById('numero5').value),
+            Number(document.getElementById('numero6').value)
+        ];
+    
+        let maiorNumero = Math.max(...numeros);
+    
+        document.getElementById('resultado').innerHTML = `O maior número digitado é: ${maiorNumero}`;
+    }
+    </script>
+</html>
+

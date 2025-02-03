@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classificação de Triângulo</title>
+</head>
+
+<style>
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+h1 {
+    color: #333;
+}
+input {
+    padding: 5px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+button {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #444;
+}
+p {
+    margin: 10px;
+    color: #333;
+}
+</style>
+
+<body>
+    <h1>Classificação de Triângulo</h1>
+    <input type="number" id="ladoA" placeholder="Lado A" required>
+    <input type="number" id="ladoB" placeholder="Lado B" required>
+    <input type="number" id="ladoC" placeholder="Lado C" required>
+    <button onclick="classificarTriangulo()">Classificar Triângulo</button>
+    <p id="resultado"></p>
+</body>
+    <script>
+    function classificarTriangulo() {
+        let a = Number(document.getElementById('ladoA').value);
+        let b = Number(document.getElementById('ladoB').value);
+        let c = Number(document.getElementById('ladoC').value);
+        let resultado = document.getElementById('resultado');
+    
+        if (a <= 0 || b <= 0 || c <= 0) {
+            resultado.innerHTML = "Os lados devem ser maiores que zero.";
+            return;
+        }
+    
+        if (a === b && b === c) {
+            resultado.innerHTML = "Triângulo EQUILÁTERO";
+        } else if (a === b || b === c || a === c) {
+            resultado.innerHTML = "Triângulo ISÓSCELES";
+        } else {
+            resultado.innerHTML = "Triângulo ESCALENO";
+        }
+    }
+    </script>
+</html>

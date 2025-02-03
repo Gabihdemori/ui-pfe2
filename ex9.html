@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Desconto</title>
+</head>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+h1 {
+    color: #333;
+}
+select, input {
+    padding: 5px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+button {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #444;
+}
+p {
+    margin: 10px;
+    color: #333;
+}
+</style>
+<body>
+    <h1>Cálculo de Desconto</h1>
+    <select id="peca">
+        <option value="" disabled selected>Selecione a peça</option>
+        <option value="camisa">Camisa</option>
+        <option value="bermuda">Bermuda</option>
+        <option value="calca">Calça</option>
+    </select>
+    <input type="number" id="preco" placeholder="Preço da Peça" required>
+    <button onclick="calcularDesconto()">Calcular Desconto</button>
+    <p id="resultado"></p>
+</body>
+    <script>
+        function calcularDesconto() {
+    let peca = document.getElementById('peca').value;
+    let preco = Number(document.getElementById('preco').value);
+    let resultado = document.getElementById('resultado');
+    let desconto = 0;
+
+    switch (peca) {
+        case 'camisa':
+            desconto = 0.20;
+            break;
+        case 'bermuda':
+            desconto = 0.10; 
+            break;
+        case 'calca':
+            desconto = 0.15; 
+            break;
+        default:
+            resultado.innerHTML = "Selecione uma peça válida.";
+            return;
+    }
+
+    let valorDesconto = preco * desconto;
+    let precoFinal = preco - valorDesconto;
+
+    resultado.innerHTML = `Desconto: R$ ${valorDesconto.toFixed(2)} <br>Preço Final: R$ ${precoFinal.toFixed(2)}`;
+}
+    </script>
+</html>
